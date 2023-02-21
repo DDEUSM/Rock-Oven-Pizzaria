@@ -112,6 +112,7 @@ document.querySelector('.window-item-btn-add-cart').addEventListener('click', ()
     infosCart.calc_Tot(myCart);
     addCart();
     document.querySelector('#cart-icon-notify').innerHTML = myCart.length;
+    document.querySelector('#back-to-home img').style.display = 'none';    
     document.querySelector('.cart').classList.add('on');
 });
 

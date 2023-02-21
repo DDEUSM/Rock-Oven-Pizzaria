@@ -1700,8 +1700,8 @@ h1 {
     }
 
     .item-picture {
-        max-width: 49vh;
-        max-height: 49vh;
+        max-width: 40vh;
+        max-height: 40vh;
     }
 
 }
