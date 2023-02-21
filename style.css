@@ -1470,7 +1470,7 @@ h1 {
         position: relative;
         width: 100vw;
         justify-content: center;
-        align-items: center;            
+        align-items: center;                    
     }
 
     .logo-icon {
@@ -1484,12 +1484,13 @@ h1 {
         height: 100vh;
         width: 100vw;
         background-color: black;
-        margin-left: calc(100vw + 3px); 
+        margin: 0;
+        margin-left: 100vw; 
         transition: all ease-in .5s;
+
     }
 
-    header nav.on {
-        left:3px;
+    header nav.on {        
         margin-left: 0;
     }
 
@@ -1528,9 +1529,8 @@ h1 {
     .cart {
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        margin: 0;
-        margin-right: -390px;
+        flex-direction: column;        
+        margin-right:-100vw; 
         position: fixed;
         right: 0;
         width: 100vw;
@@ -1562,13 +1562,11 @@ h1 {
 
     .painel-config {     
         flex: 1 1 100%;
-        width: 100%;
-        margin: 3px;        
+        width: 100%;                
         justify-content: space-between;
         flex-direction: row;
         gap: 6px;
         background-color: rgb(255, 255, 255);
-
     }
 
     #bar-to-separate-oferta {
@@ -1607,9 +1605,9 @@ h1 {
         display: none;
     }
     
-    .vitrine {      
-        width: 100vw;
-        margin: 3px;
+    .vitrine {
+        margin: 0;              
+        width: 100vw;        
     }
 
     .vitrine .pizza-item {
@@ -1646,8 +1644,8 @@ h1 {
     }
 
     .item-picture {
-        max-width: 50vh;
-        max-height: 50vh;
+        max-width: 49vh;
+        max-height: 49vh;
     }
 
 }
@@ -1661,7 +1659,7 @@ h1 {
     .title-item-desc {
         display: flex;
         flex: 1 1 100%;         
-        font-size: 10vh;
+        font-size: 8vh;
         margin: 10px 0px 10px 10px;
         
     }
