@@ -18,7 +18,8 @@ let infosCart = {
     }
 }
 
-document.querySelector('.menu-icon img').addEventListener('click', ()=> {
+document.querySelector('#back-to-home img').addEventListener('click', ()=> {
+       
     if(document.querySelector('header nav').classList.contains('on')){
         document.querySelector('header nav').classList.remove('on');
     }else {
@@ -174,12 +175,14 @@ function addCart(){
 }
 
 document.querySelector('#cart-icon-img').addEventListener('click', () => {
+    document.querySelector('#back-to-home img').style.display = 'none';
     displayCart();
 });
 
-document.querySelector('.cart-closer').addEventListener('click', () => {
+document.querySelector('.back-to-cardapio').addEventListener('click', () => {
+    document.querySelector('#back-to-home img').style.display = 'flex';
     displayCart();
-});
+})
 
 
 // Clonando o componente e preenchendo cada um com os dados

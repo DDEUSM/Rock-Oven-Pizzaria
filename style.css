@@ -1526,6 +1526,21 @@ h1 {
         max-width: 70%;        
     }
 
+    .back-to-cardapio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        height: 100px;
+        width: auto;
+    }
+
+    .back-to-cardapio img {        
+        cursor: pointer;
+    }
+
     .cart {
         display: flex;
         justify-content: center;
@@ -1535,9 +1550,11 @@ h1 {
         right: 0;
         width: 100vw;
         height: 100vh;
-        background-color: var(--greyDark);
-        box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.349);
-        transition: all ease-in .5s;
+        transition: all ease-in .3s;
+    }
+
+    .container-items {
+        width: 100vw;
     }
 
     #cart-icon {
@@ -1548,6 +1565,41 @@ h1 {
         align-items: center;        
         height: inherit;        
         margin: 0;
+    }
+
+    .cart-closer {
+        display: none;
+    }
+
+    .cart-item {                                
+        height: 70px;
+        width: 100vw;         
+    }
+
+    
+    .cart-item-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: auto;
+        font-size: 5vw;
+    }
+
+    .cart-item-trash {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cart-item-trash-img {
+        width: 5vw;
+        height: 5vh;
+    }
+
+    .cart-list-items {
+        width: 100vw;
+        padding: 5px 2px;        
     }
 
     #filter-icon {
@@ -1561,12 +1613,13 @@ h1 {
     }
 
     .painel-config {     
-        flex: 1 1 100%;
-        width: 100%;                
+        width: 100vw;                
         justify-content: space-between;
         flex-direction: row;
+        margin: 0px 4px;
         gap: 6px;
         background-color: rgb(255, 255, 255);
+        
     }
 
     #bar-to-separate-oferta {
@@ -1574,10 +1627,9 @@ h1 {
     }
 
     .container-filters {
-        flex: 1 1 1%;
+        flex: 1 1;
         justify-content: flex-end;
-        background-color: (255, 255, 255);
-        
+        background-color: (255, 255, 255);        
     }
 
     .container-filters li {
@@ -1588,14 +1640,14 @@ h1 {
         display: none;
     }
 
-    .painel-config .spn-ofertas {
+    .spn-ofertas {
         display: flex;
         margin-left: 0;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         justify-content: center;
         align-items: center;
-        flex: 1 1 1%;        
+        flex: 1 1;        
         background-color: var(--greenAvocado);
         cursor: pointer;
     }
@@ -1608,6 +1660,10 @@ h1 {
     .vitrine {
         margin: 0;              
         width: 100vw;        
+    }
+
+    .title-vitrine {
+        margin: 0px 4px;
     }
 
     .vitrine .pizza-item {
@@ -1640,7 +1696,7 @@ h1 {
     }
 
     .window-item-desc {
-
+        
     }
 
     .item-picture {
