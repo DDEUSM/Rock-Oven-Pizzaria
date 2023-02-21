@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizzaria</title>
+</head>
+<body>
+    <div class="models">
+        <h1 class="title-vitrine"></h1>
+        <div class="item-vitrine">
+            <div class="item-container">
+                <img class="img-item" src="" alt="" width="250">
+                <span class="item-info">
+                    <div class="more-btn">
+                        <img src="images/shopping-cart-empty-side-view.png" alt="" width="28">
+                    </div>
+                    <div class="price-vitrine"></div>
+                </span>
+                <div class="item-vitrine-name"></div>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img class="cart-item-picture" src="images/pizza3.png" alt="item do carrinho" width="50">
+            <h3 class="cart-item-name"></h3>
+            <div class="cart-item-qtd">
+                <button class="cart-item-qtd-btn-more">+</button>
+                <span class="cart-item-qtd-span"></span>
+                <button class="cart-item-qtd-btn-less">-</button>
+            </div>
+            <div class="cart-item-trash">
+                <img class="cart-item-trash-img" src="images/excluir(1).png" alt="icon trash" height="31">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-window-item-desc">
+        <div class="window-item-desc">
+            <div class="container-item-picture">
+                <img class="item-picture" src="images/pizza2.png" alt="imagem de pizza" width="450">
+            </div>
+            <div class="item-desc">
+                <h1 class="title-item-desc">MUSSARELA</h1>
+                <p class="p-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui culpa praesentium obcaecati ratione laborum doloremque odio dolor quibusdam ullam asperiores illo officiis error ab facere dicta, non atque est nesciunt.</p>
+                <div class="item-desc-values">
+                    <div class="item-desc-price">
+                        
+                    </div>
+                    <div class="item-desc-qtd">
+                        <button class="item-desc-qtd-btn-more">+</button>
+                        <span class="item-desc-qtd-span"></span>
+                        <button class="item-desc-qtd-btn-less">-</button>
+                    </div>
+                </div>
+            </div>
+            <div class="window-item-btn">
+                <button class="window-item-btn-add-cart">Adicionar</button>
+                <button class="window-item-btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="logo-icon">            
+            <div class="logo-name">Rock Oven</div>
+        </div>
+        <div class="menu-fixed">
+            <span class="menu-icon">
+                <img src="images/arrow.png" alt="icon of back" width="60">                
+            </span>
+            <nav class="nav-cardapio">
+                <a href="page.html" class="active">Voltar para a Home</a>
+                <div class="bar-to-separate"></div>
+                <div class="cardapio-title">
+                    Nosso Cardápio
+                </div>                      
+            </nav>
+            <div id="cart-icon">
+                <span id="greater-than-99-items">+</span>
+                <span id="cart-icon-notify">0</span>
+                <img id="cart-icon-img" src="images/cart_white.png" alt="ícon shop cart" width="45">
+                
+            </div>
+            <aside class="cart">
+                <section class="container-items">                    
+                    <span class="cart-closer">X</span>
+                    <h2 class="title-cart">Meu carrinho</h2>                    
+                    
+                    <section class="cart-list-items">
+                        O carrinho está vazio!
+                    </section>
+                </section>
+                <section class="cart-infos">
+                    <div id="cart-infos-subtotal">Subtotal</div>
+                    <div id="cart-infos-subtotal-value">R$0.00</div>
+                    <div id="cart-infos-descont">Desconto</div>
+                    <div id="cart-infos-descont-value">R$0.00</div>
+                    <div id="cart-infos-total">Total</div>
+                    <div id="cart-infos-total-value">R$0.00</div>
+                    <div class="cart-infos-final">
+                        <button class="cart-infos-btn-final">Finalizar a compra</button>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </header>
+
+    <section class="painel-config">
+    <span class="spn-ofertas">Ofertas<div id="bar-to-separate-oferta"></div></span>
+        
+        <ul class="container-filters">
+            <img src="images/filter-filled-tool-symbol.png" alt="ícone de filtro" height="30" id="filter-icon">
+            <li id="txt-filter">filter</li>
+            <li class="filter">
+                <button class="open-list-filter">Padrão</button>
+                <div class="container-filter-price">
+
+                    <div class="container-prc">
+                        <span id="txt-prc-min">Min</span>
+                        <input type="number" id="prc-min">
+                    </div>
+
+                    <div class="container-prc">
+                        <span id="txt-prc-max">
+                            Max
+                        </span>
+                        <input type="number" id="prc-max">
+                    </div>
+
+                    <button class="btn-filter-price">Aplicar</button>
+                </div>
+            </li>
+            
+            <div id="bar-to-separate"></div>
+            <img src="images/ordenacao.png" alt="ícone de ordenação" height="40" id="ordination-icon">
+
+            <li id="txt-ordination">Ordem por</li>
+            <li>
+                <div class="ordination-items">
+                    <button class="open-list">Padrão</button>                    
+                    <ul class="ordination-list desactivated">
+                        <div class="ordination-default selected">Padrão</div>
+                        <div class="ordination-desc">Maior Preço</div>                          
+                        <div class="ordination-asc">Menor Preço</div>
+                    </ul>                    
+                </div> 
+            </li>
+        </ul>
+    </section>
+    <aside>        
+        <ul class="options-items-view">
+            <li id="pizzas-view" class="onview">Pizzas</li>
+            <li id="sobremesas-view" class="">Sobremesas</li>
+            <li id="bebidas-view" class="">Bebidas</li>
+        </ul>
+    </aside>
+    <main class="vitrine">
+        
+    </main>
+
+
+    <footer>
+        <section class="social-media">
+            <img src="images/facebook.png" alt="ícone do facebook" width="32">
+            <img src="images/instagram.png" alt="ícone do instagram" width="30">
+            <img src="images/twitter.png" alt="ícone do twitter" width="30">
+        </section>
+        Criado por David de Deus Mesquita
+    </footer>
+    <script src="produtos.js"></script>
+    <script src="cardapio.js"></script>
+    
+</body>
+</html>
