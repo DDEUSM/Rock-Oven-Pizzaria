@@ -1,4 +1,5 @@
-
+let arrTouch = [];
+let status = 0;
 let data_key = 0;
 const shopMain = document.querySelector('.vitrine');
 let myCart = [];
@@ -291,48 +292,23 @@ document.querySelectorAll('.options-items-view li').forEach((itemView) => {
 
 
 document.querySelector('#pizzas-view').addEventListener('click', () => {
-    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '0';
+    
     view_control = 'pizzas';        
     imprimirNaTela(pizzas);
 });
 
 
-document.querySelector('#sobremesas-view').addEventListener('click', ()=> {
-    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+document.querySelector('#sobremesas-view').addEventListener('click', ()=> {    
     view_control = 'sobremesas';           
     imprimirNaTela(sobremesas);
 });
 
-document.querySelector('#bebidas-view').addEventListener('click', ()=> {
-    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-200%';
+document.querySelector('#bebidas-view').addEventListener('click', ()=> {    
     view_control = 'bebidas';       
     imprimirNaTela(bebidas);
 });
 
 // Funções para a Applicação mobile
-
-document.querySelectorAll('.title-area .title-vitrine')[0].addEventListener('touchmove', (event) => {
-    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`); 
-    if(event.touches[0].clientX > window.screen.width / 2){
-        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
-    }
-});
-
-document.querySelectorAll('.title-area .title-vitrine')[1].addEventListener('touchmove', (event) => {         
-    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`);  
-    if(event.touches[0].clientX > window.screen.width / 2){
-        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-200%';
-    }else {
-        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '0';
-    }
-});
-
-document.querySelectorAll('.title-area .title-vitrine')[2].addEventListener('touchmove', (event) => {
-    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`);        
-    if(event.touches[0].clientX < window.screen.width / 2){
-        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
-    }
-});
 
 
 // Função na label para mostrar a select-box
@@ -560,4 +536,59 @@ document.querySelector('.btn-filter-price').addEventListener('click', () => {
             imprimirNaTela(sobremesas);
             break;
     }
+});
+
+function verifyItemSection(){
+    if(status == 0){
+        imprimirNaTela(pizzas);
+    };
+    if(status == 1){
+        imprimirNaTela(sobremesas);
+    }
+    if(status == 2){
+        imprimirNaTela(bebidas);
+    }
+    
+}
+
+
+function moveSlider(direction){
+    if(direction == 'left'){
+        if(status <= 1){
+            status ++;
+            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = `-${status * 100}%`;
+            document.querySelector('.status-bar-title').style.marginLeft = `${status * (100 / 3)}%`;
+        }else {
+            status = 0;
+            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = `-${status * 100}%`;
+            document.querySelector('.status-bar-title').style.marginLeft = `${status * (100 / 3)}%`;
+        }                
+    }else{        
+        if(status > 0){
+            status --;
+            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = `-${(status) * 100}%`;
+            document.querySelector('.status-bar-title').style.marginLeft = `${status * (100 / 3)}%`;        
+        }
+    }
+    verifyItemSection();
+}
+
+document.querySelector('.title-area .slider-title-vitrine').addEventListener('touchstart', event => {    
+    ;[...event.changedTouches].forEach(touch => {        
+        arrTouch.push(touch);
+    });    
+});
+
+document.querySelector('.title-area .slider-title-vitrine').addEventListener('touchend', event => {
+    ;[...event.changedTouches].forEach(touch => {        
+        arrTouch.push(touch);
+    })
+    if(arrTouch[0].pageX > arrTouch[1].pageX){
+        console.log('movido para esquerda!');        
+        moveSlider('left');
+    }else {
+        console.log('movido para a direita!')
+        moveSlider('right');
+    }
+    arrTouch = [];
 });

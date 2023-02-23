@@ -40,7 +40,7 @@ body {
     display: none;
 }
 
-header, .painel-config,aside, .vitrine, footer {
+header, .painel-config, aside, .vitrine, footer {
     display: flex;
     margin: 3px;
     
@@ -419,7 +419,8 @@ header nav > a:hover {
     flex: 1 1 100%;         
     font-size: 3.5em;
     margin-left: 10px;
-    
+    font-family: Antonio;
+    color: #fff;
 }
 
 .p-item-desc {
@@ -453,8 +454,6 @@ header nav > a:hover {
     justify-content: flex-end;
     align-items: center;
     flex:  1 1 50%;
-    
-    
 }
 
 .item-desc-qtd-btn-more {
@@ -505,30 +504,21 @@ header nav > a:hover {
     padding-left: 10px;
     gap: 10px;
     border-radius: 10px;
-}
-
-.window-item-btn-add-cart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 35px 10px 35px;
-    border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    background-color: var(--greenAvocado);
-    cursor: pointer;
     
 }
 
-.window-item-btn-cancel {
+.window-item-btn button {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 35px 10px 35px;
     border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    cursor: pointer;
+    border: 1px solid #000000;
+    color: #000000;
     background-color: var(--greenAvocado);
+    cursor: pointer;    
 }
+
 
 /*section*/
 
@@ -770,9 +760,9 @@ aside ul > li:hover {
 
 }
 
-.title-area {
-    width: 100%;
-    overflow-x: hidden;    
+.title-area {    
+    width: 100%;    
+    overflow-x: hidden;        
 }
 
 .items-area {
@@ -788,25 +778,39 @@ aside ul > li:hover {
     flex-wrap: nowrap;        
     align-items: center;    
     max-width: 100%;    
-    height: 61px;
-    transition: all ease-in .3s;                     
+    height: 61px;    
+    transition: all ease-in .3s;    
 }
 
-.title-vitrine {    
+.status-slider-title{
+    width: 100%;
+    padding: 6px;
+    background-color: var(--greyDark);
+    border-radius: 6px;
+}
+
+.status-bar-title {
+    height: 2px;
+    width: calc(100% / 3);
+    background-color: var(--greenAvocado);
+    border-radius: 3px;
+    transition: all ease-in .3s;
+}
+
+.title-vitrine {
     display: flex;
     justify-content: center;
     align-items: center;    
     min-width: 100%;
+    max-width: 100%;
     height: 60px;
     background-color: var(--greyDark);
     border: 1px solid grey;
     border-radius: 10px;
     color: #fff;
     font-size: 2.5em;
-    
     font-family: Manrope;
-    font-weight: 200;
-    margin: 0px 0px 0px 0px;    
+    font-weight: 200;        
 }
 
 .item-vitrine {
@@ -1332,7 +1336,7 @@ body {
     background-image: url(images/pexels-scott-webb-2117938\(1\).jpg);
 }
 
-h1 {
+#fotos-da-casa h1 {
     margin: 100px 0px 20px 0;
     color: #fff;
     font-size: 2.5em;
@@ -1686,7 +1690,7 @@ h1 {
     }
 
     .title-vitrine {
-        margin: 0px 4px;
+        
     }
 
     .vitrine .pizza-item {
