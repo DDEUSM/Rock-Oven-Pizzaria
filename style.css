@@ -21,8 +21,7 @@
 }
 
 * {
-    
-    margin: 0; /**/
+    margin: 0;    
     padding: 0; /**/
     box-sizing: border-box; /**/ 
     flex-wrap: wrap;
@@ -32,7 +31,7 @@
 }
 
 body {
-    display: flex;
+    display: flex;    
     background-image: radial-gradient(rgb(61, 61, 61), rgb(10, 10, 10), rgb(0, 0, 0), rgb(0, 0, 0));
     height: 100vh;
 }
@@ -761,6 +760,7 @@ aside ul > li:hover {
 
 .vitrine {
     justify-content: center;
+    flex-wrap: wrap;
     flex: 2 1 500px;
     margin-right: 10%;
     padding-top: 30px;
@@ -769,11 +769,34 @@ aside ul > li:hover {
     min-height: 700px;
 
 }
-.title-vitrine {
+
+.title-area {
+    width: 100%;
+    overflow-x: hidden;    
+}
+
+.items-area {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex: 1 1 100%;
+    flex-wrap: wrap;
+    width: 100%;    
+    overflow-x: hidden;
+}
+
+.slider-title-vitrine {    
+    display: flex;
+    flex-wrap: nowrap;        
+    align-items: center;    
+    max-width: 100%;    
+    height: 61px;
+    transition: all ease-in .3s;                     
+}
+
+.title-vitrine {    
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    min-width: 100%;
     height: 60px;
     background-color: var(--greyDark);
     border: 1px solid grey;
@@ -783,7 +806,7 @@ aside ul > li:hover {
     
     font-family: Manrope;
     font-weight: 200;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;    
 }
 
 .item-vitrine {

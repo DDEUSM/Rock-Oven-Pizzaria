@@ -242,9 +242,10 @@ function imprimirNaTela(arrItens){
     }
     if(filter_control){
         arrItens = setFilter(arrItens);
-    }    
+    }
+    shopMain.querySelector('.items-area').innerHTML = '';    
     arrItens.forEach((itemHtml) => {
-        shopMain.append(itemHtml)
+        shopMain.querySelector('.items-area').append(itemHtml);
     });
 }
 
@@ -271,12 +272,13 @@ let sobremesas = sobremesaJson.map(itemSobremesa => {
 //Para inicializar o App Web com a vitrine de Pizzas.
 
 view_control = 'pizzas';
-var title_of_pizzas = document.querySelector('.title-vitrine').cloneNode(true);
-title_pizzas.innerHTML = 'Pizzas';
-shopMain.append(title_pizzas);
+const titles = document.querySelector('.slider-title-vitrine').cloneNode(true);
+titles.querySelectorAll('.title-vitrine')[0].innerHTML = 'Pizzas';
+titles.querySelectorAll('.title-vitrine')[1].innerHTML = 'Sobremesas';
+titles.querySelectorAll('.title-vitrine')[2].innerHTML = 'Bebidas';
+shopMain.querySelector('.title-area').append(titles);
 
 imprimirNaTela(pizzas);
-
 
 document.querySelectorAll('.options-items-view li').forEach((itemView) => {
     itemView.addEventListener('click', (event) => {
@@ -287,36 +289,49 @@ document.querySelectorAll('.options-items-view li').forEach((itemView) => {
 });
 
 
-document.querySelector('#pizzas-view').addEventListener('click', () => {
-    view_control = 'pizzas';
-    shopMain.innerHTML = '';
-    let title_pizzas = document.querySelector('.title-vitrine').cloneNode(true);
-    title_pizzas.innerHTML = 'Pizzas';
-    shopMain.append(title_pizzas);
 
+document.querySelector('#pizzas-view').addEventListener('click', () => {
+    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '0';
+    view_control = 'pizzas';        
     imprimirNaTela(pizzas);
 });
 
-document.querySelector('#bebidas-view').addEventListener('click', ()=> {
-    view_control = 'bebidas';
-    shopMain.innerHTML = '';
-    let title_bebidas = document.querySelector('.title-vitrine').cloneNode(true);
-    title_bebidas.innerHTML = 'Bebidas';
-    shopMain.append(title_bebidas);
-
-    imprimirNaTela(bebidas);
-});
 
 document.querySelector('#sobremesas-view').addEventListener('click', ()=> {
-    view_control = 'sobremesas';
-    shopMain.innerHTML = '';
-    let title_sobremesas = document.querySelector('.title-vitrine').cloneNode(true);
-    title_sobremesas.innerHTML = 'Sobremesas';
-    shopMain.append(title_sobremesas);
-    
+    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+    view_control = 'sobremesas';           
     imprimirNaTela(sobremesas);
 });
 
+document.querySelector('#bebidas-view').addEventListener('click', ()=> {
+    document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-200%';
+    view_control = 'bebidas';       
+    imprimirNaTela(bebidas);
+});
+
+// Funções para a Applicação mobile
+
+document.querySelectorAll('.title-area .title-vitrine')[0].addEventListener('touchmove', (event) => {
+    console.log(event.touches[0].clientX);        
+        if(event.touches[0].clientX > window.screenX / 2){
+            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+        }
+});
+
+document.querySelectorAll('.title-area .title-vitrine')[1].addEventListener('touchmove', (event) => {           
+    if(event.touches[0].clientX > window.screenX / 2){
+        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-200%';
+    }else {
+        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '0';
+    }
+});
+
+document.querySelectorAll('.title-area .title-vitrine')[2].addEventListener('touchmove', (event) => {
+    console.log(event.touches[0].clientX);        
+        if(event.touches[0].clientX < window.screenX / 2){
+            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+        }
+});
 
 
 // Função na label para mostrar a select-box
