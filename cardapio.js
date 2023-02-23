@@ -312,14 +312,15 @@ document.querySelector('#bebidas-view').addEventListener('click', ()=> {
 // Funções para a Applicação mobile
 
 document.querySelectorAll('.title-area .title-vitrine')[0].addEventListener('touchmove', (event) => {
-    console.log(event.touches[0].clientX);        
-        if(event.touches[0].clientX > window.screenX / 2){
-            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
-        }
+    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`); 
+    if(event.touches[0].clientX > window.screen.width / 2){
+        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+    }
 });
 
-document.querySelectorAll('.title-area .title-vitrine')[1].addEventListener('touchmove', (event) => {           
-    if(event.touches[0].clientX > window.screenX / 2){
+document.querySelectorAll('.title-area .title-vitrine')[1].addEventListener('touchmove', (event) => {         
+    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`);  
+    if(event.touches[0].clientX > window.screen.width / 2){
         document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-200%';
     }else {
         document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '0';
@@ -327,10 +328,10 @@ document.querySelectorAll('.title-area .title-vitrine')[1].addEventListener('tou
 });
 
 document.querySelectorAll('.title-area .title-vitrine')[2].addEventListener('touchmove', (event) => {
-    console.log(event.touches[0].clientX);        
-        if(event.touches[0].clientX < window.screenX / 2){
-            document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
-        }
+    console.log(`touch point: ${event.touches[0].clientX}, half screen: ${window.screen.width}`);        
+    if(event.touches[0].clientX < window.screen.width / 2){
+        document.querySelector('.title-area .slider-title-vitrine').style.marginLeft = '-100%';
+    }
 });
 
 
