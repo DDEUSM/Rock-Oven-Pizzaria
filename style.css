@@ -783,6 +783,7 @@ aside ul > li:hover {
 }
 
 .status-slider-title{
+    display: none;
     width: 100%;
     padding: 6px;
     background-color: var(--greyDark);
@@ -1487,7 +1488,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 954px){
+@media only screen and (max-width: 983px){
     
     body {
         overflow-x: hidden;   
@@ -1620,8 +1621,8 @@ body {
     }
 
     .cart-item-trash-img {
-        width: 5vw;
-        height: 5vh;
+        width: 20px;
+        height: 23px;
     }
 
     .cart-list-items {
@@ -1645,8 +1646,7 @@ body {
         flex-direction: row;
         margin: 0px 4px;
         gap: 6px;
-        background-color: rgb(255, 255, 255);
-        
+        background-color: rgb(255, 255, 255);        
     }
 
     #bar-to-separate-oferta {
@@ -1691,6 +1691,10 @@ body {
 
     .title-vitrine {
         
+    }
+
+    .status-slider-title {
+        display: flex;
     }
 
     .vitrine .pizza-item {
