@@ -175,6 +175,8 @@ function addCart(){
             myCart[findElement].qtd ++;
             myCart[findElement].prc_total = myCart[findElement].prc_uni * myCart[findElement].qtd;
             infosCart.calc_Tot(myCart);
+            
+            cartNotify();
             addCart();
         });        
         
@@ -186,6 +188,8 @@ function addCart(){
                 myCart[findElement].qtd --;
                 myCart[findElement].prc_total = myCart[findElement].prc_uni * myCart[findElement].qtd;
                 infosCart.calc_Tot(myCart);
+                
+                cartNotify();
                 addCart();
             }
         });
@@ -308,20 +312,21 @@ document.querySelectorAll('.options-items-view li').forEach((itemView) => {
 });
 
 
-
 document.querySelector('#pizzas-view').addEventListener('click', () => {
-    
+    titles.style.marginLeft = "0";
     view_control = 'pizzas';        
     imprimirNaTela(pizzas);
 });
 
 
 document.querySelector('#sobremesas-view').addEventListener('click', ()=> {    
+    titles.style.marginLeft = "-100%";
     view_control = 'sobremesas';           
     imprimirNaTela(sobremesas);
 });
 
 document.querySelector('#bebidas-view').addEventListener('click', ()=> {    
+    titles.style.marginLeft = "-200%";
     view_control = 'bebidas';       
     imprimirNaTela(bebidas);
 });
@@ -358,172 +363,36 @@ document.querySelectorAll('.ordination-list div').forEach(item => {
     });
 })
 
-document.querySelector('.ordination-asc').addEventListener('click', () => {
-    shopMain.innerHTML = '';
-    ordination_control = 'asc'
+document.querySelector('.ordination-asc').addEventListener('click', () => {    
+    ordination_control = 'asc';
     switch(view_control){
-        case 'pizzas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Pizzas';
-            shopMain.append(title);    
+        case 'pizzas':               
             imprimirNaTela(pizzas);
             break;
-        case 'bebidas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Bebidas';
-            shopMain.append(title);    
+        case 'bebidas':   
             imprimirNaTela(bebidas);
             break;
-        case 'sobremesas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Sobremesas';
-            shopMain.append(title);            
+        case 'sobremesas':          
             imprimirNaTela(sobremesas);
             break;
     }
 });
 
-document.querySelector('.ordination-desc').addEventListener('click', () => {
-    shopMain.innerHTML = ''
+document.querySelector('.ordination-desc').addEventListener('click', () => {    
     ordination_control = 'desc'
     switch(view_control){
-        case 'pizzas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Pizzas';
-            shopMain.append(title);    
+        case 'pizzas':             
             imprimirNaTela(pizzas);
             break;
-        case 'bebidas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Bebidas';
-            shopMain.append(title);    
+        case 'bebidas':           
             imprimirNaTela(bebidas);
             break;
-        case 'sobremesas':
-            var title = document.querySelector('.title-vitrine').cloneNode(true);
-            title.innerHTML = 'Sobremesas';
-            shopMain.append(title);            
+        case 'sobremesas':                     
             imprimirNaTela(sobremesas);
             break;
     }
 });
 
-//ordenação dos itens
-/*
-document.querySelector('.ordination-asc').addEventListener('click', () => {
-    let view = document.querySelector('li.onview');
-
-    let pizzas_result_sort = pizzas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        return price_a - price_b;
-    });
-
-    let bebidas_result_sort = bebidas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        return price_a - price_b;
-    });
-
-    let sobremesas_result_sort = sobremesas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        return price_a - price_b;
-    });
-
-    
-    switch(view.id){
-        case 'pizzas-view':
-            pizzas_result_sort.forEach((pizzaJson) => {
-                imprimirNaTela(pizzaJson);
-            });
-            break;
-        case 'sobremesas-view':
-            sobremesas_result_sort.forEach((sobremesasJson) => {
-                imprimirNaTela(sobremesasJson);
-            });
-            break;
-        case 'bebidas-view':
-            bebidas_result_sort.forEach((bebidasJson) => {
-                imprimirNaTela(bebidasJson);
-            });
-    }
-   
-
-})
-
-
-document.querySelector('.ordination-desc').addEventListener('click', () => {
-    
-    let view = document.querySelector('li.onview');
-    
-    let pizzas_result_sort = pizzas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        if(price_a > price_b){
-            return -1;
-        } else {
-            return 1;
-        }
-    });
-
-    let bebidas_result_sort = bebidas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        if(price_a > price_b){
-            return -1;
-        } else {
-            return 1;
-        }
-    });
-
-    let sobremesas_result_sort = sobremesas.sort((item_a, item_b) =>{
-        let get_price_item_a = item_a.querySelector('.price-vitrine').textContent.slice(2,);
-        let get_price_item_b = item_b.querySelector('.price-vitrine') .textContent.slice(2,);
-        let price_a = Number(get_price_item_a);
-        let price_b = Number(get_price_item_b);
-
-        if(price_a > price_b){
-            return -1;
-        } else {
-            return 1;
-        }
-    });
-
-
-    switch(view.id){
-        case 'pizzas-view':
-            pizzas_result_sort.forEach((pizzaJson) => {
-                imprimirNaTela(pizzaJson);
-            });
-            break;
-        case 'sobremesas-view':
-            sobremesas_result_sort.forEach((sobremesasJson) => {
-                imprimirNaTela(sobremesasJson);
-            });
-            break;
-        case 'bebidas-view':
-            bebidas_result_sort.forEach((bebidasJson) => {
-                imprimirNaTela(bebidasJson);
-            });
-    }
-})
-*/
 
 // Funções do Botão da vitrine, que vai ativar o menu do item, que possui mais descrições
 
